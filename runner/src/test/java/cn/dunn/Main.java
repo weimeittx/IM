@@ -11,7 +11,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -86,7 +85,7 @@ public class Main {
 
     @Test
     public void testgetFriends() {
-        List<FriendNexus> friends = friendNexusRepository.findBySelf_id("57dfff487294a0af27bd7426");
+        List<FriendNexus> friends = friendNexusRepository.findBySelf(new User("57dfff487294a0af27bd7426"));
         List<User> collect = friends.stream().map(FriendNexus::getFriend).collect(Collectors.toList());
         collect.stream().forEach(u -> {
             System.out.println(u.getUsername());
@@ -102,7 +101,7 @@ public class Main {
         chatGroup = chatGroupRepository.save(chatGroup);
 
         GroupMember groupMember = new GroupMember();
-        groupMember.setChatGroupId(chatGroup.getId());
+        groupMember.setChatGroup(chatGroup);
         groupMember.setMember(new User("57dfff487294a0af27bd7426"));
         groupMemberRepository.save(groupMember);
 
@@ -113,7 +112,7 @@ public class Main {
         chatGroupRepository.save(chatGroup);
 
         groupMember = new GroupMember();
-        groupMember.setChatGroupId(chatGroup.getId());
+        groupMember.setChatGroup(chatGroup);
         groupMember.setMember(new User("57dfff487294a0af27bd7426"));
         groupMemberRepository.save(groupMember);
     }
@@ -122,7 +121,9 @@ public class Main {
 
     @Test
     public void testGetChatGroups() {
-
-
+        List<ChatGroup> chatGroups = groupMemberRepository.findByMember(new User("57dfff487294a0af27bd7426")).stream().map(GroupMember::getChatGroup).collect(Collectors.toList());
+        chatGroups.stream().forEach(chatGroup -> {
+            System.out.println(chatGroup.getChatGroupName());
+        });
     }
 }
