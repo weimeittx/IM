@@ -41,7 +41,7 @@ class GroupMessageActor extends Actor with ActorLogging {
     case m: MemberUp => {
       val member = m.member
       if (member.hasRole(MESSAGE_FORWARD_ACTOR)) {
-        context.actorSelection(RootActorPath(member.address)) ! MessageForwardActorUp()
+        context.actorSelection(RootActorPath(member.address) / "user" / MESSAGE_FORWARD_ACTOR) ! MessageForwardActorUp()
 
       }
     }

@@ -20,4 +20,11 @@
   <groupId>cn.dunn</groupId>
   <artifactId>model</artifactId>
   <version>1.0.0</version>
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-mongodb</artifactId>
+      <version>1.8.1.RELEASE</version>
+    </dependency>
+  </dependencies>
 </project>

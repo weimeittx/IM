@@ -8,14 +8,12 @@ import cn.dunn.message.ChatMessage;
 import cn.dunn.message.GroupMessage;
 import io.vertx.core.Vertx;
 import io.vertx.core.eventbus.EventBus;
-import io.vertx.core.eventbus.MessageConsumer;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.handler.StaticHandler;
 import io.vertx.ext.web.handler.sockjs.BridgeOptions;
 import io.vertx.ext.web.handler.sockjs.PermittedOptions;
 import io.vertx.ext.web.handler.sockjs.SockJSHandler;
-import scala.collection.immutable.Vector;
 
 import java.util.Date;
 
@@ -37,11 +35,11 @@ public class SocktJsHandler {
 
         eb.<JsonObject>consumer(ChatMessage.class.getName()).handler(message -> {
             JsonObject body = message.body();
-            actorRef.tell(ChatMessage.apply(body.getString("from"), body.getString("to"), body.getString("content"), new Date(), Source.WEB), ActorRef.noSender());
+            actorRef.tell(ChatMessage.apply(body.getString("from"), body.getString("to"), body.getString("content"), new Date(), Source.WEB()), ActorRef.noSender());
         });
         eb.<JsonObject>consumer(GroupMessage.class.getName()).handler(message -> {
             JsonObject body = message.body();
-            actorRef.tell(GroupMessage.apply(body.getString("from"), body.getString("to"), body.getString("content"), new Date(), Source.WEB, null), ActorRef.noSender());
+            actorRef.tell(GroupMessage.apply(body.getString("from"), body.getString("to"), body.getString("content"), new Date(), Source.WEB(), null), ActorRef.noSender());
         });
         return new ScriptImpl(eb);
     }

@@ -4,15 +4,11 @@
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
-      <excludeFolder url="file://$MODULE_DIR$/.idea" />
-      <excludeFolder url="file://$MODULE_DIR$/.settings" />
-      <excludeFolder url="file://$MODULE_DIR$/akka/.settings" />
-      <excludeFolder url="file://$MODULE_DIR$/model/.settings" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
-      <excludeFolder url="file://$MODULE_DIR$/vertx/.settings" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="scala-sdk-2.11.71" level="application" />
     <orderEntry type="library" name="Maven: com.typesafe.akka:akka-actor_2.11:2.4.1" level="project" />
     <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.11.7" level="project" />
     <orderEntry type="library" name="Maven: com.typesafe:config:1.3.0" level="project" />

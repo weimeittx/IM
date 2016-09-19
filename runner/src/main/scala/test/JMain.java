@@ -11,7 +11,7 @@ import java.util.Date;
  */
 public class JMain {
     public static  void main(String[] args){
-        String s = JSONObject.toJSONString(ChatMessage.apply("from", "to", "content", new Date(), Source.WEB));
+        String s = JSONObject.toJSONString(ChatMessage.apply("from", "to", "content", new Date(), Source.WEB()));
         System.out.println(s);
     }
 }

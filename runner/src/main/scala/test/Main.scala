@@ -3,7 +3,7 @@ package test
 import java.util.Date
 
 import cn.dunn.constant.Source
-import cn.dunn.message.ChatMessage
+import cn.dunn.message.{GroupMessage, ChatMessage}
 import org.json4s.ShortTypeHints
 import org.json4s.native.Serialization
 
@@ -15,7 +15,7 @@ object Main extends App {
     ShortTypeHints(
       List(
         classOf[ChatMessage],
-        classOf[Source]
+        classOf[GroupMessage]
       )
     )
   )
