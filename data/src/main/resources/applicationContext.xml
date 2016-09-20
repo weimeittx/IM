@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
-	xmlns:mongo="http://www.springframework.org/schema/data/mongo" xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans.xsd
            http://www.springframework.org/schema/context
            http://www.springframework.org/schema/context/spring-context.xsd
@@ -16,12 +17,12 @@
            http://www.springframework.org/schema/data/mongo
            http://www.springframework.org/schema/data/mongo/spring-mongo.xsd">
 
-	<context:property-placeholder location="classpath:application.properties"/>
-	<context:component-scan base-package="cn.dunn" />
-	<mongo:repositories base-package="cn.dunn.mongo" />
-	<mongo:db-factory host="${mongo.host}" port="${mongo.port}" dbname="${mongo.dbname}" />
-	<mongo:mapping-converter id="converter" db-factory-ref="mongoDbFactory"
-		base-package="cn.dunn.mode" />
-	<mongo:template converter-ref="converter" db-factory-ref="mongoDbFactory" />
-	<mongo:gridFsTemplate converter-ref="converter" db-factory-ref="mongoDbFactory" />
+    <context:property-placeholder location="classpath:application.properties"/>
+    <context:component-scan base-package="cn.dunn"/>
+    <mongo:repositories base-package="cn.dunn.mongo"/>
+    <mongo:db-factory host="${mongo.host}" port="${mongo.port}" dbname="${mongo.dbname}"/>
+    <mongo:mapping-converter id="converter" db-factory-ref="mongoDbFactory"
+                             base-package="cn.dunn.mode"/>
+    <mongo:template converter-ref="converter" db-factory-ref="mongoDbFactory"/>
+    <mongo:gridFsTemplate converter-ref="converter" db-factory-ref="mongoDbFactory"/>
 </beans>
