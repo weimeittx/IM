@@ -5,13 +5,22 @@ import cn.dunn.mode.FriendNexus;
 import cn.dunn.mode.GroupMember;
 import cn.dunn.mode.User;
 import cn.dunn.mongo.*;
+import cn.dunn.service.FileNote;
+import cn.dunn.service.FileService;
 import cn.dunn.util.MD5Util;
+import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -25,6 +34,7 @@ public class Main {
     MessageRepository messageRepository;
     UserRepository userRepository;
     MongoTemplate mongoTemplate;
+    FileService fileService;
 
     {
         context = new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -34,6 +44,7 @@ public class Main {
         messageRepository = context.getBean(MessageRepository.class);
         userRepository = context.getBean(UserRepository.class);
         mongoTemplate = context.getBean(MongoTemplate.class);
+        fileService = context.getBean(FileService.class);
     }
 
     @Test
@@ -118,7 +129,6 @@ public class Main {
     }
 
 
-
     @Test
     public void testGetChatGroups() {
         List<ChatGroup> chatGroups = groupMemberRepository.findByMember(new User("57dfff487294a0af27bd7426")).stream().map(GroupMember::getChatGroup).collect(Collectors.toList());
@@ -126,4 +136,25 @@ public class Main {
             System.out.println(chatGroup.getChatGroupName());
         });
     }
+
+    @Test
+    public void testAddFile() throws FileNotFoundException {
+        Map<String, String> map = new HashMap<>();
+        map.put("type", "img");
+        map.put("suffix", ".jpg");
+        FileNote result = fileService.saveFile(new FileInputStream("C:\\Users\\Administrator\\Desktop\\lians.properties"), "lians.properties", "txt", map);
+        System.out.println(result.getId());
+    }
+
+    @Test
+    public void testDeleteFile() {
+        fileService.deleteFile(() -> "57e0ff1ce62083be45e156a9");
+    }
+
+    @Test
+    public void testGetOneFile() throws Exception {
+        FileNote<String> file = fileService.getOneFile(() -> "57e1086ce620a2a7254632fa");
+        IOUtils.copy(file.inputStream(), new FileOutputStream("E:\\"+file.filename()));
+    }
 }
+
