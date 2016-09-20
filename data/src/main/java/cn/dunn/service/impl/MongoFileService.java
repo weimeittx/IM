@@ -16,6 +16,7 @@ import javax.annotation.Resource;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 @Service
@@ -83,6 +84,8 @@ public class MongoFileService implements FileService<String> {
 
     @Override
     public FileNote<String> saveFile(InputStream inputStream, String fileName, String type, Map<String, Object> metadata) {
+        if (metadata == null)
+            metadata = new HashMap<>();
         BasicDBObject dbObject = new BasicDBObject();
         metadata.put(FileNote.CREATE_TIME, new Date());
         metadata.put(FileNote.UPDATE_TIME, new Date());

@@ -17,7 +17,6 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -140,20 +139,18 @@ public class Main {
     @Test
     public void testAddFile() throws FileNotFoundException {
         Map<String, String> map = new HashMap<>();
-        map.put("type", "img");
-        map.put("suffix", ".jpg");
-        FileNote result = fileService.saveFile(new FileInputStream("C:\\Users\\Administrator\\Desktop\\lians.properties"), "lians.properties", "txt", map);
+        FileNote result = fileService.saveFile(new FileInputStream("C:\\Users\\Administrator\\Desktop\\绘图1.vsdx"), "绘图1.vsdx", "vsdx", map);
         System.out.println(result.getId());
     }
 
     @Test
     public void testDeleteFile() {
-        fileService.deleteFile(() -> "57e0ff1ce62083be45e156a9");
+        fileService.deleteFile(() -> "57e1247372942202601ba652");
     }
 
     @Test
     public void testGetOneFile() throws Exception {
-        FileNote<String> file = fileService.getOneFile(() -> "57e1086ce620a2a7254632fa");
+        FileNote<String> file = fileService.getOneFile(() -> "57e1247372942202601ba652");
         IOUtils.copy(file.inputStream(), new FileOutputStream("E:\\"+file.filename()));
     }
 }
