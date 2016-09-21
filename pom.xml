@@ -12,6 +12,7 @@
         <module>runner</module>
         <module>util</module>
         <module>data</module>
+        <module>web</module>
     </modules>
     <properties>
         <akka.version>2.4.1</akka.version>
@@ -135,6 +136,12 @@
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
         </dependency>
     </dependencies>
 </project>

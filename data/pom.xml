@@ -32,6 +32,11 @@
         </dependency>
 
         <dependency>
+            <groupId>cn.dunn</groupId>
+            <artifactId>vertx</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
             <version>${spring.version}</version>

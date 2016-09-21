@@ -17,6 +17,7 @@
            http://www.springframework.org/schema/data/mongo
            http://www.springframework.org/schema/data/mongo/spring-mongo.xsd">
 
+    <context:annotation-config />
     <context:property-placeholder location="classpath:application.properties"/>
     <context:component-scan base-package="cn.dunn"/>
     <mongo:repositories base-package="cn.dunn.mongo"/>
