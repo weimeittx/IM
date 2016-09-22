@@ -5,10 +5,8 @@ import cn.dunn.mode.FriendNexus;
 import cn.dunn.mode.GroupMember;
 import cn.dunn.mode.User;
 import cn.dunn.mongo.*;
-import cn.dunn.service.FileNote;
 import cn.dunn.service.FileService;
 import cn.dunn.util.MD5Util;
-import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -16,7 +14,6 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -138,9 +135,9 @@ public class Main {
 
     @Test
     public void testAddFile() throws FileNotFoundException {
-        Map<String, String> map = new HashMap<>();
-        FileNote result = fileService.saveFile(new FileInputStream("C:\\Users\\Administrator\\Desktop\\绘图1.vsdx"), "绘图1.vsdx", "vsdx", map);
-        System.out.println(result.getId());
+        Map<String, Object> map = new HashMap<>();
+        fileService.saveFile(new FileInputStream("C:\\Users\\Administrator\\Desktop\\绘图1.vsdx"), "绘图1.vsdx", "vsdx", map);
+        fileService.saveFile("".getBytes(), "", "", null);
     }
 
     @Test
@@ -150,8 +147,7 @@ public class Main {
 
     @Test
     public void testGetOneFile() throws Exception {
-        FileNote<String> file = fileService.getOneFile(() -> "57e1247372942202601ba652");
-        IOUtils.copy(file.inputStream(), new FileOutputStream("E:\\"+file.filename()));
+        fileService.getOneFile("57e1247372942202601ba652");
     }
 }
 
