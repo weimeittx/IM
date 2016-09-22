@@ -1,6 +1,5 @@
 package cn.dunn.service.impl;
 
-import cn.dunn.service.FileNote;
 import cn.dunn.service.FileService;
 import com.mongodb.BasicDBObject;
 import com.mongodb.gridfs.GridFSFile;
@@ -48,8 +47,8 @@ public class MongoFileService implements FileService {
         return saveFile(inputStream, fileName, type, metadata);
     }
 
-    public void deleteFile(FileNote<String> fileNote) {
-        gridFsTemplate.delete(Query.query(Criteria.where("_id").is(fileNote.getId())));
+    public void deleteFile(String id) {
+        gridFsTemplate.delete(Query.query(Criteria.where("_id").is(id)));
     }
 
 

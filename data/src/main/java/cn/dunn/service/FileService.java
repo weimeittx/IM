@@ -15,5 +15,5 @@ public interface FileService {
 
     GridFSFile saveFile(InputStream inputStream, String fileName, String type, Map<String, Object> metadata);
 
-    void deleteFile(FileNote<String> fileNote);
+    void deleteFile(String id);
 }

@@ -1,0 +1,50 @@
+{
+  "success": true,
+  "result": [
+    {
+      "id": "1",
+      "head": "head.png",
+      "chatName": "李四",
+      "content": "你好!",
+      "date": 12345678954
+    },
+    {
+      "id": "2",
+      "type": "chat",
+      "head": "head.png",
+      "chatName": "李四",
+      "content": "你好!",
+      "date": 12345678954
+    },
+    {
+      "id": "3",
+      "type": "group",
+      "head": "head.png",
+      "chatName": "李四",
+      "content": "你好!",
+      "date": 12345678954
+    },
+    {
+      "id": "4",
+      "head": "head.png",
+      "chatName": "李四",
+      "content": "你好!",
+      "date": 12345678954
+    },
+    {
+      "type": "group",
+      "id": "5",
+      "head": "head.png",
+      "chatName": "李四",
+      "content": "你好!",
+      "date": 12345678954
+    },
+    {
+      "id": "6",
+      "head": "head.png",
+      "chatName": "李四",
+      "content": "你好!",
+      "date": 12345678954
+    }
+  ]
+}

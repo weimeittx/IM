@@ -1,0 +1,25 @@
+{
+  "chatName": "张三",
+  "messages": [
+    {
+      "chatId": "123456",
+      "head": "head.png",
+      "content": "<p>hehe</p>"
+    },
+    {
+      "chatId": "123456",
+      "head": "head.png",
+      "content": "<p>hehe</p>"
+    },
+    {
+      "chatId": "1234567",
+      "head": "head.png",
+      "content": "<p>hehe</p>"
+    },
+    {
+      "chatId": "123456",
+      "head": "head.png",
+      "content": "<p>hehe</p>"
+    }
+  ]
+}

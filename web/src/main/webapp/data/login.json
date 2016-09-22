@@ -1,0 +1,8 @@
+{
+  "success": true,
+  "result": {
+    "id": "123456",
+    "nickname": "张三",
+    "head": "head.png"
+  }
+}

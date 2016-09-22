@@ -360,6 +360,16 @@ body {
     margin: 6px 10px;
 }
 
+
+.right .chat-main .message-view{
+    overflow-y: scroll;
+}
+.right .chat-main .message-view .message{
+    width: 100%;
+    margin: 5px auto;
+}
+
+
 .right .chat-main .message-view .left-message img {
     height: 36px;
     width: 36px;
@@ -397,6 +407,10 @@ body {
 }
 
 /*�ұߵ���Ϣ*/
+
+.right .chat-main .message-view .right-message{
+    float: right;
+}
 
 .right .chat-main .message-view .right-message img {
     float: right;
